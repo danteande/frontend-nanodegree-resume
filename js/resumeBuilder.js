@@ -28,7 +28,7 @@ var bio = {
         var formattedContact3 = HTMLtwitter.replace("%data%", bio.contacts[0].twitter);
         var formattedContact4 = HTMLgithub.replace("%data%", bio.contacts[0].github);
         var formattedContact5 = HTMLlocation.replace("%data%", bio.contacts[0].location);
-        var formattedContactline = formattedContact1 + formattedContact2 + formattedContact3 + formattedContact4 + formattedContact5
+        var formattedContactline = formattedContact1 + formattedContact2 + formattedContact3 + formattedContact4 + formattedContact5;
         $("#header").append(formattedContactline);
         $("#lets-connect").append(formattedContactline);
         var formattedPicture = HTMLbioPic.replace("%data%", bio.picURL);
@@ -44,7 +44,7 @@ var bio = {
             }
         }
     }
-}
+};
 
 var education = {
     "schools": [{
@@ -87,37 +87,34 @@ var education = {
             var formattedDate = HTMLschoolDates.replace("%data%", education.schools[key].dates);
             var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[key].degree);
             var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[key].location);
-            formattedSchoolLine = formattedSchool + formattedDegree
+            formattedSchoolLine = formattedSchool + formattedDegree;
             formattedDateLine = formattedDate + formattedLocation;
             $(".education-entry:last").append(formattedSchoolLine);
             $(".education-entry:last").append(formattedDateLine);
-            /* code to make major plural or single as needed */
+            /* code to make the word major plural or single as needed */
             var formattedMajor = "";
             var majortitle = "Major";
             $.each(education.schools[key].majors, function(mkey, value) {
                 formattedMajor = formattedMajor + HTMLschoolMajor.replace("%data%", education.schools[key].majors[mkey]);
             });
             if (education.schools[key].majors.length > 1)
-                var majortitle = "Majors";
-            console.log(education.schools[key].majors.length);
+                majortitle = "Majors";
             $(".education-entry:last").append("<br>" + majortitle + ": " + formattedMajor);
         });
         $("#education").append(HTMLonlineClasses);
         $.each(education.onlineCourses, function(okey, value) {
             var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[okey].title);
             var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[okey].school);
-            formattedTitleLine = formattedTitle + formattedSchool
+            formattedTitleLine = formattedTitle + formattedSchool;
             var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[okey].date);
             /* create text and underlying URL for course links */
             var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[okey].url).replace("%data1%", education.onlineCourses[okey].url);
-            console.log(formattedTitle, formattedURL);
             $(".online-entry:last").append(formattedTitleLine);
             $(".online-entry:last").append(formattedDates);
             $(".online-entry:last").append(formattedURL);
-            console.log(formattedURL);
         });
     }
-}
+};
 
 var work = {
     "jobs": [{
@@ -152,7 +149,7 @@ var work = {
             }
         }
     }
-}
+};
 
 var projects = {
     "projects": [{
@@ -181,13 +178,13 @@ var projects = {
             });
         });
     }
-}
+};
 
 var map = {
     display: function() {
         $("#mapDiv").append(googleMap);
     }
-}
+};
 
 bio.display();
 work.display();
