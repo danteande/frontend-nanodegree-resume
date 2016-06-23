@@ -5,16 +5,15 @@ var bio = {
     "contacts": {
 
         "mobile": "415-488-7818",
-        /* make contact links clickable with proper hrefs */
-        "email": "<a href='mailto:dante.anderson@gmail.com'>dante.anderson@gmail.com</a>",
-        "github": "<a href='https://github.com/danteande/'>github.com/danteande/</a>",
+        "email": "dante.anderson@gmail.com",
+        "github": "github.com/danteande/",
         "twitter": "Dante1",
         "location": "Novato, CA"
 
     },
     "welcomeMessage": "Seeking a few good Deadheads to help write some code",
     "skills": ["charm", "stealth", "project management", "coding", "web-product design"],
-    "picURL": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/0aa/3da/03897df.jpg",
+    "biopic": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/0aa/3da/03897df.jpg",
 
 
     display: function() {
@@ -23,14 +22,14 @@ var bio = {
         $("#header").prepend(formattedRole);
         $("#header").prepend(formattedName);
         var formattedContact1 = HTMLmobile.replace("%data%", bio.contacts.mobile);
-        var formattedContact2 = HTMLemail.replace("%data%", bio.contacts.email);
+        var formattedContact2 = HTMLemail.replace("%data%", bio.contacts.email).replace("%link%", bio.contacts.email);
         var formattedContact3 = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-        var formattedContact4 = HTMLgithub.replace("%data%", bio.contacts.github);
+        var formattedContact4 = HTMLgithub.replace("%data%", bio.contacts.github).replace("%link%", bio.contacts.github);
         var formattedContact5 = HTMLlocation.replace("%data%", bio.contacts.location);
         var formattedContactline = formattedContact1 + formattedContact2 + formattedContact3 + formattedContact4 + formattedContact5;
         $("#header").append(formattedContactline);
         $("#lets-connect").append(formattedContactline);
-        var formattedPicture = HTMLbioPic.replace("%data%", bio.picURL);
+        var formattedPicture = HTMLbioPic.replace("%data%", bio.biopic);
         $("#header").append('<div id="biopicture"></div>');
         $("#biopicture").append(formattedPicture);
         var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
@@ -132,21 +131,20 @@ var work = {
 
     ],
     display: function() {
-        for (var key in work.jobs) {
-            if (work.jobs.hasOwnProperty(key)) {
-                jQuery("#workExperience").append(HTMLworkStart);
-                var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[key].employer);
-                var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[key].title);
-                var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[key].location);
-                var formattedEmployerTitle = formattedEmployer + formattedTitle + formattedLocation;
-                var formattedDates = HTMLworkDates.replace("%data%", work.jobs[key].dates);
-                var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[key].description);
-                jQuery(".work-entry:last").append(formattedEmployerTitle);
-                jQuery(".work-entry:last").append(formattedDates);
-                jQuery(".work-entry:last").append(formattedDescription);
+        jQuery("#workExperience").append(HTMLworkStart);
+        work.jobs.forEach(function(job) {
+            var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+            var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+            var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+            var formattedEmployerTitle = formattedEmployer + formattedTitle + formattedLocation;
+            var formattedDates = HTMLworkDates.replace("%data%", job.dates);
+            var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
+            jQuery(".work-entry:last").append(formattedEmployerTitle);
+            jQuery(".work-entry:last").append(formattedDates);
+            jQuery(".work-entry:last").append(formattedDescription);
 
-            }
-        }
+
+        });
     }
 };
 

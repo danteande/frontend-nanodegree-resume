@@ -3,9 +3,9 @@ var HTMLheaderRole = '<span>%data%</span><hr>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item contactli"><span class="orange-text">mobile:</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item contactli"><span class="orange-text">email:</span><span class="white-text">%data%</span></li>';
+var HTMLemail = '<li class="flex-item contactli"><span class="orange-text">email:</span><span class="white-text"><a href="mailto:%link%">%data%</a></span></li>';
 var HTMLtwitter = '<li class="flex-item contactli"><span class="orange-text">twitter:</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item contactli"><span class="orange-text">github:</span><span class="white-text">%data%</span></li>';
+var HTMLgithub = '<li class="flex-item contactli"><span class="orange-text">github:</span><span class="white-text"><a href="https://%link%">%data%</a></span></li>';
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 var HTMLlocation = '<li class="flex-item contactli"><span class="orange-text">location:</span><span class="white-text">%data%</span></li>';
 
@@ -36,8 +36,6 @@ var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em> %data%</em>';
 
 var HTMLonlineClasses = '<div class="online-entry"><br><h3>Online Classes</h3></div>';
-//var HTMLonlineTitle = '<a href="%data1%">%data%';
-//var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineTitle = '<div class="online-title">%data%';
 var HTMLonlineSchool = ' - %data%</div>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
