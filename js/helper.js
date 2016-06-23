@@ -115,7 +115,7 @@ function initializeMap() {
 
 
         // adds the single location property from bio to the locations array
-        locations.push(bio.contacts[0].location);
+        locations.push(bio.contacts.location);
 
         // iterates through school locations and appends each location to
         // the locations array. Note that forEach is used for array iteration
@@ -134,6 +134,7 @@ function initializeMap() {
         });
 
         return locations;
+
     }
 
     /*
@@ -156,18 +157,19 @@ function initializeMap() {
             title: name
         });
 
-        // infoWindows are the little helper windows that open when you click
-        // or hover over a pin on a map. They usually contain more information
-        // about a location.
+        // infoWindows with longitude and latitude
         var infoWindow = new google.maps.InfoWindow({
-            content: name
+            content: '<div><h4>' + name + '</h4></div><div>  longitude: ' + lon.toFixed(2) + '</div><div>  longitude: ' + lat.toFixed(2) + '</div>',
+            maxWidth: 400
         });
 
-        // hmmmm, I wonder what this is about...
+        // open infoWindow on click of marker
         google.maps.event.addListener(marker, 'click', function() {
-            // your code goes here!
+            infoWindow.open(map, marker);
         });
-
+        setTimeout(function() {
+            infoWindow.close();
+        }, 5000);
         // this is where the pin actually gets added to the map.
         // bounds.extend() takes in a map location object
         bounds.extend(new google.maps.LatLng(lat, lon));
@@ -234,4 +236,3 @@ window.addEventListener('load', initializeMap);
 window.addEventListener('resize', function(e) {
     //Make sure the map bounds get updated on page resize
     map.fitBounds(mapBounds);
-});

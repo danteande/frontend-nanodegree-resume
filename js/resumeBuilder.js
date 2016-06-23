@@ -2,17 +2,16 @@
 var bio = {
     "name": "Dante Anderson",
     "role": "Boss",
-    "contacts": [
+    "contacts": {
 
-        {
-            "mobile": "415-488-7818",
-            /* make contact links clickable with proper hrefs */
-            "email": "<a href='mailto:dante.anderson@gmail.com'>dante.anderson@gmail.com</a>",
-            "github": "<a href='https://github.com/danteande/'>github.com/danteande/</a>",
-            "twitter": "Dante1",
-            "location": "Novato, CA"
-        }
-    ],
+        "mobile": "415-488-7818",
+        /* make contact links clickable with proper hrefs */
+        "email": "<a href='mailto:dante.anderson@gmail.com'>dante.anderson@gmail.com</a>",
+        "github": "<a href='https://github.com/danteande/'>github.com/danteande/</a>",
+        "twitter": "Dante1",
+        "location": "Novato, CA"
+
+    },
     "welcomeMessage": "Seeking a few good Deadheads to help write some code",
     "skills": ["charm", "stealth", "project management", "coding", "web-product design"],
     "picURL": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/0aa/3da/03897df.jpg",
@@ -23,11 +22,11 @@ var bio = {
         var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
         $("#header").prepend(formattedRole);
         $("#header").prepend(formattedName);
-        var formattedContact1 = HTMLmobile.replace("%data%", bio.contacts[0].mobile);
-        var formattedContact2 = HTMLemail.replace("%data%", bio.contacts[0].email);
-        var formattedContact3 = HTMLtwitter.replace("%data%", bio.contacts[0].twitter);
-        var formattedContact4 = HTMLgithub.replace("%data%", bio.contacts[0].github);
-        var formattedContact5 = HTMLlocation.replace("%data%", bio.contacts[0].location);
+        var formattedContact1 = HTMLmobile.replace("%data%", bio.contacts.mobile);
+        var formattedContact2 = HTMLemail.replace("%data%", bio.contacts.email);
+        var formattedContact3 = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+        var formattedContact4 = HTMLgithub.replace("%data%", bio.contacts.github);
+        var formattedContact5 = HTMLlocation.replace("%data%", bio.contacts.location);
         var formattedContactline = formattedContact1 + formattedContact2 + formattedContact3 + formattedContact4 + formattedContact5;
         $("#header").append(formattedContactline);
         $("#lets-connect").append(formattedContactline);
